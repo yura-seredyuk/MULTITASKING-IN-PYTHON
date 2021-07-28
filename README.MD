@@ -1,6 +1,4 @@
 # MULTITASKING IN PYTHON: SINGLE-THREADING VS MULTIPROCESSING VS MULTITHREADING VS ASYNCHRONY
-![process_img](https://pythonworld.ru/m/img/python-3.png)
-
 
 ### Text content
 1. [Basic concepts](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#basic-concepts)
@@ -10,6 +8,7 @@
 5. [Asynchronous programming](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#asynchronous-programming)
 6. [Examples and tests](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#examples-and-tests)
 7. [Conclusions and differences](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#conclusions-and-differences)
+8. [Sources](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#sources)
 
 ## Basic concepts:
 
@@ -190,118 +189,213 @@ print("Current: %d, Peak %d" % tracemalloc.get_traced_memory())
 print("Current: %d, Peak %d" % tracemalloc.get_traced_memory())
 ```
 ### Files
+```
+TEST 1: sleep
+- test_1_single.py
+- test_1_process.py
+- test_1_thtead.py
+- test_1_async.py
 
+TEST 2: fetch URL 1 000 times
+- test_2_single.py
+- test_2_process.py
+- test_2_thtead.py
+- test_2_async.py
+
+TEST 3: multiple writing into one local file
+- test_3_single.py
+- test_3_process.py
+- test_3_thtead.py
+- test_3_async.py
+
+TEST 4: heavy operations 
+- test_4_single.py
+- test_4_process.py
+- test_4_thtead.py
+- test_4_async.py
+
+TEST 5: IO operations (multiple files – 10k)
+- test_5_single.py
+- test_5_process.py
+- test_5_thtead.py
+- test_5_async.py
+
+TEST 6: reading from API and writing to the local file 100 times
+- test_6_single.py
+- test_6_process.py
+- test_6_thtead.py
+- test_6_async.py
+
+TEST 7: reading big CSV file (~10Mb)
+- test_7_single.py
+
+Support files:
+- generate_messages.py - generate data into data.py file for the TEST 1
+- delete_files.py - delete files after TEST 5
+- data_generator.py - generate CSV file data.csv 
+
+```
 ### Best results by the time for all tests
- | params | Single-threaded | Multiprocessing | Multithreading | Asynchronous 
-|:------------:|:------------:|:---------------:|:---------------:|:---------------:|:---------------:|
-TEST 1
-sleep |
 
-TEST 2
-fetch URL 
-1 000 times
+		
+		
 
-TEST 3
-multiple writing into one local file
-
-TEST 4
-heavy operations 
-
-TEST 5
-IO operations (multiple files – 10k)
-
-TEST 6
-reading from API and writing to the local file 100 times
-
-
-memory | 
-Current: 20 282, 
-Peak 25 563 | 
-Current: 1 022 389, 
-Peak 1 051 123 | 
-Current: 154 908, 
-Peak 166 532 | 
-Current: 66 280, 
-Peak 95 110 | 
-time
-178.10015487670898
-27.14326310157776
-10.008656024932861
-10.002372026443481
-memory
-Current: 1 675 405, 
-Peak 1 810 874
-Current: 641 498, 
-Peak 3 579 588
-Current: 2 162 746, 
-Peak 14 674 889
-Current: 5 127 574, 
-Peak 22 147 351
-time
-243.5635371208191
-81.55517721176147
-6.851548910140991
-9.241158246994019
-memory
-Current: 675, 
-Peak 81 117
-Current: 1 025 853, 
-Peak 1 053 928
-Current: 84 790, 
-Peak 169 612
-Current: 272 825, 
-Peak 1 529 655
-time
-0.04591989517211914
-0.11201786994934082
-0.05333209037780762
-8.34945011138916
-memory
-Current: 28, 
-Peak 11958404
-Current: 1025991, Peak 46066981
-Current: 53555, 
-Peak 22619938
-Current: 30838, 
-Peak 51858706
-time
-78.15798282623291
-14.848083972930908
-77.25872468948364
-78.71868419647217
-memory
-Current: 1 493, 
-Peak 7 493
-Current: 1 157 226, Peak 1 269 901
-Current: 26 445 306, 
-Peak 28 063 475
-Current: 1 300 008, 
-Peak 118 920 105
-time
-1.0173640251159668
-0.8301951885223389
-1.4301888942718506
-5.764318943023682
-memory
-Current: 254 820, 
-Peak 311 684
-Current: 614 687, 
-Peak 643 421
-Current: 790 740, 
-Peak 4 814 464
-Current: 974 525, 
-Peak 3 735 296
-time
-43.93997097015381
-11.277347087860107
-9.835943937301636
-9.256136894226074
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>params</th>
+			<th>Single-threaded</th>
+			<th>Multiprocessing</th>
+			<th>Multithreading</th>
+			<th>Asynchronous</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td rowspan=2>TEST 1 sleep </td>
+			<td>memory</td>
+			<td>Current: 20 282, Peak 25 563</td>
+			<td>Current: 1 022 389, Peak 1 051 123</td>
+			<td>Current: 154 908, Peak 166 532</td>
+			<td>Current: 66 280, Peak 95 110</td>
+		</tr>
+		<tr>
+	    		<td>time</td>
+			<td>178.10015487670898</td>
+			<td>27.14326310157776</td>
+			<td>10.008656024932861</td>
+			<td>10.002372026443481</td>
+		</tr>
+		<tr>
+			<td rowspan=2>TEST 2 fetch URL 1 000 times</td>
+			<td>memory</td>
+			<td>Current: 1 675 405, Peak 1 810 874</td>
+			<td>Current: 641 498, Peak 3 579 588</td>
+			<td>Current: 2 162 746, Peak 14 674 889</td>
+			<td>Current: 5 127 574, Peak 22 147 351</td>
+		</tr>
+		<tr>
+	    		<td>time</td>
+			<td>243.5635371208191</td>
+			<td>81.55517721176147</td>
+			<td>6.851548910140991</td>
+			<td>9.241158246994019</td>
+		</tr>
+		<tr>
+			<td rowspan=2>TEST 3 multiple writing into one local file</td>
+			<td>memory</td>
+			<td>Current: 675, Peak 81 117</td>
+			<td>Current: 1 025 853, Peak 1 053 928</td>
+			<td>Current: 84 790, Peak 169 612</td>
+			<td>Current: 272 825, Peak 1 529 655</td>
+		</tr>
+		<tr>
+	    		<td>time</td>
+			<td>0.04591989517211914</td>
+			<td>0.11201786994934082</td>
+			<td>0.05333209037780762</td>
+			<td>8.34945011138916</td>
+		</tr>		
+		<tr>
+			<td rowspan=2>TEST 4 heavy operations</td>
+			<td>memory</td>
+			<td>Current: 28, Peak 11958404</td>
+			<td>Current: 1025991, Peak 46066981</td>
+			<td>Current: 53555, Peak 22619938</td>
+			<td>Current: 30838, Peak 51858706</td>
+		</tr>
+		<tr>
+	    		<td>time</td>
+			<td>78.15798282623291</td>
+			<td>14.848083972930908</td>
+			<td>77.25872468948364</td>
+			<td>78.71868419647217</td>
+		</tr>
+		<tr>
+			<td rowspan=2>TEST 5 IO operations (multiple files – 10k)</td>
+			<td>memory</td>
+			<td>Current: 1 493, Peak 7 493</td>
+			<td>Current: 1 157 226, Peak 1 269 901</td>
+			<td>Current: 26 445 306, Peak 28 063 475</td>
+			<td>Current: 1 300 008, Peak 118 920 105</td>
+		</tr>
+		<tr>
+	    		<td>time</td>
+			<td>1.0173640251159668</td>
+			<td>0.8301951885223389</td>
+			<td>1.4301888942718506</td>
+			<td>5.764318943023682</td>
+		</tr>
+		<tr>
+			<td rowspan=2>TEST 6 reading from API and writing to the local file 100 times</td>
+			<td>memory</td>
+			<td>Current: 254 820, Peak 311 684</td>
+			<td>Current: 614 687, Peak 643 421</td>
+			<td>Current: 790 740, Peak 4 814 464</td>
+			<td>Current: 974 525, Peak 3 735 296</td>
+		</tr>
+		<tr>
+	    		<td>time</td>
+			<td>43.93997097015381</td>
+			<td>11.277347087860107</td>
+			<td>9.835943937301636</td>
+			<td>9.256136894226074</td>
+		</tr>
+	</tbody>
+</table>
 
 
 ## Conclusions and differences
+**Threading**
+- Thread: shared memory (easier communication between threads)
+- Need a lock for non atomic function like increment counter
+- To avoid lock, use thread-safe atomic message queue
+- Utilize single core: concurrent execution, subject to GIL (Global Interpreter Lock)
+- Task switching handled by OS
+- Very hard to write and maintain correct code
+
+**Multiprocessing**
+- Utilize multiple CPU cores: good for CPU bound task, bypass GIL limitation, parallel execution
+- Process: separate and larger memory footprint
+- IPC (Inter Process Communications) more complicated and overheads than threads
+- Spawn process is slower than launch thread
+- You can kill a process (but not a thread)
+
+**Asyncio**
+- Faster than threads
+- Replace callbacks with await
+- Good for IO bound
+- Harder to write than threading, but easier to get it right than threading.
+- Utilize single core only: concurrent but not parallel execution
+
+- Mix asyncio with multiprocessing to utilize multi core: [aiomultiprocess](https://github.com/omnilib/aiomultiprocess)
+
+**where used**
+Synchronous, not CPU Bound, Only local files I/O Bound => **Single trading**<br/>
+CPU Bound =>** Multi Processing**<br/>
+I/O Bound, Fast I/O, Limited Number of Connections => **Multi Threading**<br/>
+I/O Bound, Slow I/O, Many connections => **Asyncio**<br/>
+
+
 ```python
-
+if io_bound: 
+	if io_very_slow: 
+		print("Use Asyncio") 	
+	else: 
+		print("Use Threads") 
+	else: 
+		print("Multi Processing")
 ```
+<img src="https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/prezent_pictures/pic_16.png" width="300"><br/>
 
+## Sources
+- [Python’s GIL — A Hurdle to Multithreaded Program](https://medium.com/python-features/pythons-gil-a-hurdle-to-multithreaded-program-d04ad9c1a63)
+- [Асинхронный ввод-вывод с Python 3](https://code.tutsplus.com/ru/tutorials/asynchronous-io-with-python-3--cms-29045)
+- [Socket Programming with Multi-threading in Python](https://www.geeksforgeeks.org/socket-programming-multi-threading-python/)
+- [Difference Between Multithreading vs Multiprocessing in Python](https://www.geeksforgeeks.org/difference-between-multithreading-vs-multiprocessing-in-python/?ref=rp)
+- [A better way for asynchronous programming: asyncio over multi-threading](https://towardsdatascience.com/a-better-way-for-asynchronous-programming-asyncio-over-multi-threading-3457d82b3295)
+- [Parallel, Asynchronous, Multithreading programming](https://stefaniuk.website/all/parallel-asynchronous-multithreading-programming/)
+- [Intro to Threads and Processes in Python](https://medium.com/@bfortuner/python-multithreading-vs-multiprocessing-73072ce5600b)
 
 
