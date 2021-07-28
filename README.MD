@@ -8,7 +8,7 @@
 5. [Asynchronous programming](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#asynchronous-programming)
 6. [Examples and tests](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#examples-and-tests)
 7. [Conclusions and differences](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#conclusions-and-differences)
-8. [Sources](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#sources)
+8. [Resources](https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/README.MD#sources)
 
 ## Basic concepts:
 
@@ -193,41 +193,43 @@ print("Current: %d, Peak %d" % tracemalloc.get_traced_memory())
 TEST 1: sleep
 - test_1_single.py
 - test_1_process.py
-- test_1_thtead.py
+- test_1_thread.py
 - test_1_async.py
 
 TEST 2: fetch URL 1 000 times
 - test_2_single.py
 - test_2_process.py
-- test_2_thtead.py
+- test_2_thread.py
 - test_2_async.py
 
 TEST 3: multiple writing into one local file
 - test_3_single.py
 - test_3_process.py
-- test_3_thtead.py
+- test_3_thread.py
 - test_3_async.py
 
 TEST 4: heavy operations 
 - test_4_single.py
 - test_4_process.py
-- test_4_thtead.py
+- test_4_thread.py
 - test_4_async.py
 
 TEST 5: IO operations (multiple files – 10k)
 - test_5_single.py
 - test_5_process.py
-- test_5_thtead.py
+- test_5_thread.py
 - test_5_async.py
 
 TEST 6: reading from API and writing to the local file 100 times
 - test_6_single.py
 - test_6_process.py
-- test_6_thtead.py
+- test_6_thread.py
 - test_6_async.py
 
 TEST 7: reading big CSV file (~10Mb)
 - test_7_single.py
+- test_7_thread.py
+- test_7_async.py
 
 Support files:
 - generate_messages.py - generate data into data.py file for the TEST 1
@@ -389,7 +391,7 @@ if io_bound:
 ```
 <img src="https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/prezent_pictures/pic_16.png" width="300"><br/>
 
-## Sources
+## Resources
 - [Python’s GIL — A Hurdle to Multithreaded Program](https://medium.com/python-features/pythons-gil-a-hurdle-to-multithreaded-program-d04ad9c1a63)
 - [Асинхронный ввод-вывод с Python 3](https://code.tutsplus.com/ru/tutorials/asynchronous-io-with-python-3--cms-29045)
 - [Socket Programming with Multi-threading in Python](https://www.geeksforgeeks.org/socket-programming-multi-threading-python/)
