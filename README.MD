@@ -106,8 +106,7 @@ if __name__ == '__main__’:
 
 **Multithreading** is a technique where multiple threads are spawned by a process to do different tasks, at about the same time, just one after the other. This gives you the illusion that the threads are running in parallel, but they are actually run in a concurrent manner. In Python, the Global Interpreter Lock (GIL) prevents the threads from running simultaneously.<br >
 
-<img src="https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/prezent_pictures/pic_12.png" width="300">
-<img src="https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/prezent_pictures/pic_13.png" width="300"><br/>
+<img src="https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/prezent_pictures/pic_12.png" width="300">  <img src="https://github.com/yura-seredyuk/MULTITASKING-IN-PYTHON/blob/master/prezent_pictures/pic_13.png" width="300"><br/>
 
 Needed library: [threading](https://docs.python.org/3/library/threading.html#module-threading) (internal library) 
 
